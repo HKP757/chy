@@ -1,404 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Engineering Chemistry Quiz (Ch 1–4)</title>
-<style>
-body{
-  font-family: Arial, sans-serif;
-  background:#f4f6f8;
-  padding:20px;
-}
-.quiz-box{
-  max-width:900px;
-  margin:auto;
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-select{
-  width:100%;
-  padding:10px;
-  margin-bottom:15px;
-}
-.question{
-  font-size:18px;
-  margin:15px 0;
-}
-.option{
-  background:#eef1f5;
-  padding:10px;
-  margin:6px 0;
-  border-radius:6px;
-  cursor:pointer;
-}
-.option:hover{ background:#dbeafe; }
-.correct{ background:#c8f7c5 !important; }
-.wrong{ background:#f7c5c5 !important; }
-.next-btn{
-  margin-top:15px;
-  padding:10px 20px;
-  background:#2563eb;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1st Semester Chemistry - Question Bank</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    h2 { color: #0a6ebd; }
+    .chapter { margin-bottom: 40px; }
+    .section-title { font-weight: bold; margin-top: 10px; }
+    .question { margin-left: 20px; margin-bottom: 5px; }
+    .answer { color: green; margin-left: 30px; }
+  </style>
 </head>
 <body>
 
-<div class="quiz-box">
-<h2>Engineering Chemistry (Chapter 1–4)</h2>
+<h1>1st Semester Chemistry - Question Bank</h1>
 
-<select id="chapter" onchange="loadChapter()">
-  <option value="1">Chapter 1: Chemical Equation</option>
-  <option value="2">Chapter 2: Solution & Titration</option>
-  <option value="3">Chapter 3: Atomic Structure</option>
-  <option value="4">Chapter 4: Chemical Equilibrium</option>
-</select>
+<!-- Chapter 1 -->
+<div class="chapter">
+  <h2>Chapter 1: Chemical Equation</h2>
 
-<div id="quiz"></div>
-<button class="next-btn" onclick="nextQ()">Next</button>
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Mole concept is used to measure: a) Mass only b) Number of particles only c) Both mass and number of particles d) Volume only
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">2. A chemical equation must satisfy: a) Conservation of mass b) Conservation of energy c) Conservation of momentum d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Oxidation is: a) Loss of electrons b) Gain of electrons c) Loss of protons d) Gain of neutrons
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">4. Reduction is: a) Loss of electrons b) Gain of electrons c) Loss of protons d) Gain of neutrons
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">5. Method to balance redox reactions: a) Partial equation method b) Ion-electron method c) Both a and b d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">6. Stoichiometry is related to: a) Mass b) Mole c) Volume d) All of the above
+    <div class="answer">Answer: d</div>
+  </div>
+  <div class="question">7. 1 mole contains: a) 6.022 × 10²³ particles b) 6.022 × 10²² particles c) 1 × 10²³ particles d) 1 × 10²² particles
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Oxidation number of oxygen in H₂O₂ is: a) -1 b) -2 c) 0 d) +1
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">9. In a balanced equation, sum of coefficients represents: a) Mass b) Mole ratio c) Energy d) Volume
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">10. Balancing equations ensures: a) Law of conservation of mass b) Faster reaction c) More product d) None
+    <div class="answer">Answer: a</div>
+  </div>
+
+  <div class="section-title">True/False</div>
+  <div class="question">1. Redox reactions involve electron transfer. <div class="answer">True</div></div>
+  <div class="question">2. Stoichiometry only balances equations. <div class="answer">False</div></div>
+  <div class="question">3. Oxidation always involves oxygen. <div class="answer">False</div></div>
+  <div class="question">4. Mole concept helps in chemical calculations. <div class="answer">True</div></div>
+  <div class="question">5. Mass is conserved in a chemical reaction. <div class="answer">True</div></div>
+
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. 1 mole contains __________ particles. <div class="answer">6.022 × 10²³</div></div>
+  <div class="question">2. Gaining electrons is called __________. <div class="answer">Reduction</div></div>
+  <div class="question">3. Redox reactions involve __________ transfer. <div class="answer">Electrons</div></div>
+  <div class="question">4. Law used in balancing equations: __________. <div class="answer">Conservation of Mass</div></div>
+  <div class="question">5. Method to balance redox reactions: __________. <div class="answer">Ion-electron method</div></div>
 </div>
 
-<script>
-const data = {
-1:[
-/* ===== MCQ (10) ===== */
-{q:"One mole contains:",o:["6.022×10²²","6.022×10²³","3.011×10²³","1.66×10⁻²⁴"],a:1},
-{q:"Oxidation means:",o:["Gain of e⁻","Loss of e⁻","Gain proton","Loss neutron"],a:1},
-{q:"Reduction is:",o:["Loss of e⁻","Gain of e⁻","Loss proton","Gain neutron"],a:1},
-{q:"Redox reaction involves:",o:["Oxidation only","Reduction only","Both","None"],a:2},
-{q:"Molar mass of CO₂ is:",o:["28","32","40","44"],a:3},
-{q:"Avogadro number is:",o:["6.022×10²³","9.8","3×10⁸","1.6×10⁻¹⁹"],a:0},
-{q:"Stoichiometry deals with:",o:["Colour","Mass relation","Bonding","Structure"],a:1},
-{q:"Oxidizing agent undergoes:",o:["Oxidation","Reduction","Neutralization","None"],a:1},
-{q:"Law of conservation of mass states mass is:",o:["Created","Destroyed","Constant","Variable"],a:2},
-{q:"Chemical equation represents:",o:["Reaction","Speed","Colour","Smell"],a:0},
+<!-- Chapter 2 -->
+<div class="chapter">
+  <h2>Chapter 2: Solution and Acidimetry & Alkalimetry</h2>
 
-/* ===== TRUE / FALSE (5) ===== */
-{q:"Oxidation and reduction occur together.",o:["True","False"],a:0},
-{q:"One mole has fixed number of particles.",o:["True","False"],a:0},
-{q:"Avogadro number depends on substance.",o:["True","False"],a:1},
-{q:"Redox reactions involve electrons.",o:["True","False"],a:0},
-{q:"Mole depends on temperature.",o:["True","False"],a:1},
+  <div class="section-title">MCQs</div>
+  <div class="question">1. A solution is made of: a) Solvent only b) Solute only c) Solute + Solvent d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">2. Molarity = a) Moles of solute per liter solution b) Mass per liter solution c) Volume per mass d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Molality = a) Moles per liter solution b) Moles per kg solvent c) Mass per liter d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">4. Indicator shows: a) pH change b) End point c) Both a and b d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">5. Acidimetry measures: a) Acid solution b) Base solution c) Salt solution d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">6. Alkalimetry measures: a) Acid b) Base c) Salt d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">7. Normality = a) Equivalents per liter b) Moles per liter c) Mass per liter d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Solvent quantity is usually: a) Less b) More c) Equal to solute d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">9. End point of titration is: a) Color change b) Precipitation c) Gas evolution d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">10. % concentration = a) Mass solute/mass solution × 100 b) Volume solute/volume solution × 100 c) Both a and b d) None
+    <div class="answer">Answer: c</div>
+  </div>
 
-/* ===== FILL IN THE BLANKS (5) ===== */
-{q:"One mole contains ___ particles.",o:["6.022×10²³"],a:0},
-{q:"Loss of electrons is called ___ .",o:["Oxidation"],a:0},
-{q:"Gain of electrons is called ___ .",o:["Reduction"],a:0},
-{q:"CO₂ molar mass is ___ g/mol.",o:["44"],a:0},
-{q:"Redox reaction means oxidation and ___ .",o:["Reduction"],a:0},
-],
+  <div class="section-title">True/False</div>
+  <div class="question">1. Solvent is always in smaller quantity. <div class="answer">False</div></div>
+  <div class="question">2. Indicator detects end point. <div class="answer">True</div></div>
+  <div class="question">3. Normality = equivalents/Liter. <div class="answer">True</div></div>
+  <div class="question">4. Molarity = moles/kg solvent. <div class="answer">False</div></div>
+  <div class="question">5. Alkalimetry measures base solutions. <div class="answer">True</div></div>
 
-2:[
-/* MCQ */
-{q:"Unit of molarity is:",o:["g/L","mol/L","eq/L","g/mol"],a:1},
-{q:"Normality depends on:",o:["Molar mass","Equivalent weight","Volume","Density"],a:1},
-{q:"Titration is used to find:",o:["Temperature","Unknown concentration","Mass","Colour"],a:1},
-{q:"Phenolphthalein is a:",o:["Acid","Base","Indicator","Salt"],a:2},
-{q:"Acidimetry deals with:",o:["Acids","Bases","Salts","Water"],a:0},
-{q:"Alkalimetry deals with:",o:["Bases","Acids","Salts","Gases"],a:0},
-{q:"Molarity depends on:",o:["Temperature","Pressure","Volume","All"],a:3},
-{q:"End point is shown by:",o:["Indicator","Catalyst","Solvent","Salt"],a:0},
-{q:"Normality unit is:",o:["mol/L","eq/L","g/L","g/mol"],a:1},
-{q:"Strength of solution means:",o:["Colour","Concentration","Density","Mass"],a:1},
-
-/* T/F */
-{q:"Molarity depends on temperature.",o:["True","False"],a:0},
-{q:"Indicator shows end point.",o:["True","False"],a:0},
-{q:"Normality is always equal to molarity.",o:["True","False"],a:1},
-{q:"Acidimetry uses bases.",o:["True","False"],a:1},
-{q:"Titration is volumetric analysis.",o:["True","False"],a:0},
-
-/* Fill */
-{q:"Molarity = ___ of solute / litre.",o:["Moles"],a:0},
-{q:"Normality unit is ___ .",o:["eq/L"],a:0},
-{q:"Indicator changes ___ at end point.",o:["Colour"],a:0},
-{q:"Alkalimetry deals with ___ .",o:["Bases"],a:0},
-{q:"Titration finds ___ concentration.",o:["Unknown"],a:0},
-],
-
-3:[
-/* MCQ */
-{q:"Number of quantum numbers is:",o:["2","3","4","5"],a:2},
-{q:"Pauli principle applies to:",o:["Protons","Neutrons","Electrons","Nucleus"],a:2},
-{q:"De-Broglie hypothesis explains:",o:["Wave nature","Particle nature","Dual nature","Bonding"],a:2},
-{q:"Aufbau principle is related to:",o:["Bonding","Orbital filling","Valency","Ionization"],a:1},
-{q:"Covalent bond involves:",o:["Transfer","Sharing","Loss","Gain"],a:1},
-{q:"Ionic bond involves:",o:["Sharing","Transfer","Overlap","Hybridization"],a:1},
-{q:"Hydrogen bond is:",o:["Primary","Secondary","Metallic","Ionic"],a:1},
-{q:"Valence electrons decide:",o:["Mass","Bonding","Colour","Density"],a:1},
-{q:"s-orbital shape is:",o:["Dumbbell","Spherical","Double dumbbell","Complex"],a:1},
-{q:"Hund’s rule is about:",o:["Pairing","Energy","Spin","Mass"],a:2},
-
-/* T/F */
-{q:"Quantum numbers describe electrons.",o:["True","False"],a:0},
-{q:"Covalent bond involves transfer.",o:["True","False"],a:1},
-{q:"Hydrogen bond is weaker than covalent.",o:["True","False"],a:0},
-{q:"Aufbau principle fills lower energy first.",o:["True","False"],a:0},
-{q:"Pauli principle allows same spin.",o:["True","False"],a:1},
-
-/* Fill */
-{q:"Total quantum numbers are ___ .",o:["Four"],a:0},
-{q:"Covalent bond involves ___ of electrons.",o:["Sharing"],a:0},
-{q:"Hydrogen bonding occurs with ___ atoms.",o:["Electronegative"],a:0},
-{q:"s-orbital shape is ___ .",o:["Spherical"],a:0},
-{q:"Hund’s rule is about ___ .",o:["Spin"],a:0},
-],
-
-4:[
-/* MCQ */
-{q:"Chemical equilibrium occurs in:",o:["Open system","Closed system","Isolated","None"],a:1},
-{q:"Law of mass action relates to:",o:["Rate","Equilibrium","Bonding","Catalyst"],a:1},
-{q:"pH of neutral solution is:",o:["0","7","14","1"],a:1},
-{q:"pH is measure of:",o:["Acidity","Basicity","Both","None"],a:2},
-{q:"Le-Chatelier principle deals with:",o:["Pressure","Change","Equilibrium","All"],a:3},
-{q:"Increase in pressure favours:",o:["More moles","Less moles","No effect","Solid"],a:1},
-{q:"Equilibrium constant is:",o:["Variable","Constant","Zero","Infinite"],a:1},
-{q:"Acidic solution has pH:",o:["<7",">7","=7","0"],a:0},
-{q:"Basic solution has pH:",o:["<7",">7","=7","None"],a:1},
-{q:"pH formula is:",o:["-log[H+]","log[H+]","1/[H+]","None"],a:0},
-
-/* T/F */
-{q:"Equilibrium constant changes with catalyst.",o:["True","False"],a:1},
-{q:"pH scale ranges 0–14.",o:["True","False"],a:0},
-{q:"Neutral solution has pH 7.",o:["True","False"],a:0},
-{q:"Le-Chatelier deals with stress.",o:["True","False"],a:0},
-{q:"Equilibrium occurs instantly.",o:["True","False"],a:1},
-
-/* Fill */
-{q:"pH = ___ of hydrogen ion concentration.",o:["Negative logarithm"],a:0},
-{q:"Neutral solution pH is ___ .",o:["7"],a:0},
-{q:"Equilibrium constant is ___ at given temp.",o:["Constant"],a:0},
-{q:"Increase pressure favours ___ moles.",o:["Less"],a:0},
-{q:"Chemical equilibrium occurs in ___ system.",o:["Closed"],a:0},
-]
-};
-
-let ch=1,i=0;
-
-function loadChapter(){
-  ch=document.getElementById("chapter").value;
-  i=0;
-  loadQ();
-}
-
-function loadQ(){
-  const qz=document.getElementById("quiz");
-  qz.innerHTML="";
-  let d=data[ch][i];
-  let q=document.createElement("div");
-  q.className="question";
-  q.innerText=(i+1)+". "+d.q;
-  qz.appendChild(q);
-
-  d.o.forEach((op,j)=>{
-    let div=document.createElement("div");
-    div.className="option";
-    div.innerText=op;
-    div.onclick=()=>check(div,j);
-    qz.appendChild(div);
-  });
-}
-
-function check(el,s){
-  document.querySelectorAll(".option").forEach(o=>o.onclick=null);
-  if(s===data[ch][i].a){
-    el.classList.add("correct");
-  }else{
-    el.classList.add("wrong");
-    document.querySelectorAll(".option")[data[ch][i].a].classList.add("correct");
-  }
-}
-
-function nextQ(){
-  i++;
-  if(i<data[ch].length) loadQ();
-  else document.getElementById("quiz").innerHTML="<h3>Chapter Completed ✅</h3>";
-}
-
-loadQ();
-</script>
-
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Engineering Chemistry Quiz (Ch 5–8)</title>
-<style>
-body{font-family:Arial;background:#f4f6f8;padding:20px;}
-.quiz-box{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-select{width:100%;padding:10px;margin-bottom:15px;}
-.question{font-size:18px;margin:15px 0;}
-.option{background:#eef1f5;padding:10px;margin:6px 0;border-radius:6px;cursor:pointer;}
-.option:hover{background:#dbeafe;}
-.correct{background:#c8f7c5!important;}
-.wrong{background:#f7c5c5!important;}
-.next-btn{margin-top:15px;padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;}
-</style>
-</head>
-<body>
-
-<div class="quiz-box">
-<h2>Engineering Chemistry (Chapter 5–8)</h2>
-
-<select id="chapter" onchange="loadChapter()">
-  <option value="5">Chapter 5: Catalysis</option>
-  <option value="6">Chapter 6: Electrochemistry</option>
-  <option value="7">Chapter 7: Engineering Materials</option>
-  <option value="8">Chapter 8: Water</option>
-</select>
-
-<div id="quiz"></div>
-<button class="next-btn" onclick="nextQ()">Next</button>
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Molarity = __________ of solute per liter. <div class="answer">Moles</div></div>
+  <div class="question">2. Molality = moles per __________ of solvent. <div class="answer">Kg</div></div>
+  <div class="question">3. Indicator shows __________. <div class="answer">End point</div></div>
+  <div class="question">4. Acidimetry involves __________. <div class="answer">Acids</div></div>
+  <div class="question">5. % concentration = __________/solution ×100. <div class="answer">Mass of solute</div></div>
 </div>
 
-<script>
-const data={
-5:[
-/* MCQ (10) */
-{q:"Catalyst is a substance which:",o:["Slows reaction","Stops reaction","Increases rate","Changes equilibrium"],a:2},
-{q:"Catalyst remains:",o:["Consumed","Destroyed","Unchanged","Converted"],a:2},
-{q:"Homogeneous catalysis means:",o:["Same phase","Different phase","Solid only","Liquid only"],a:0},
-{q:"Heterogeneous catalysis involves:",o:["Same phase","Different phase","Gas only","Liquid only"],a:1},
-{q:"Enzyme is a:",o:["Metal","Acid","Biological catalyst","Salt"],a:2},
-{q:"Catalyst does not affect:",o:["Rate","Activation energy","Equilibrium","Path"],a:2},
-{q:"Example of enzyme:",o:["Pepsin","Iron","Copper","NaCl"],a:0},
-{q:"Catalyst lowers:",o:["Temperature","Activation energy","Pressure","Volume"],a:1},
-{q:"Poison reduces activity of:",o:["Reactant","Product","Catalyst","Solvent"],a:2},
-{q:"Catalysis occurs due to:",o:["Higher temp","Lower energy path","Pressure","Volume"],a:1},
+<!-- Chapter 3 -->
+<div class="chapter">
+  <h2>Chapter 3: Atomic Structure & Chemical Bonding</h2>
 
-/* True/False (5) */
-{q:"Catalyst changes equilibrium position.",o:["True","False"],a:1},
-{q:"Enzymes are biological catalysts.",o:["True","False"],a:0},
-{q:"Catalyst is consumed.",o:["True","False"],a:1},
-{q:"Heterogeneous catalyst is in same phase.",o:["True","False"],a:1},
-{q:"Catalyst lowers activation energy.",o:["True","False"],a:0},
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Electron has: a) Positive charge b) Negative charge c) No charge d) Both + and – 
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">2. Proton has: a) Positive charge b) Negative charge c) Neutral d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Neutron has: a) Positive charge b) Negative charge c) Neutral d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">4. De Broglie proposed: a) Electrons are particles b) Electrons have wave nature c) Neutrons are particles d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">5. Aufbau principle is about: a) Electron configuration b) Atomic mass c) Valency d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">6. Pauli’s exclusion principle states: a) Two electrons in same orbital have opposite spins b) Two protons in same orbital c) Neutrons are equal d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">7. Hund’s rule: a) Fill each orbital singly first b) Fill paired orbitals first c) Fill energy levels randomly d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Ionic bond is: a) Sharing electrons b) Transfer of electrons c) Metallic bond d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">9. Covalent bond is: a) Sharing electrons b) Transfer electrons c) Ionic d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">10. Metallic bond is: a) Sea of electrons b) Transfer electrons c) Sharing electrons d) None
+    <div class="answer">Answer: a</div>
+  </div>
 
-/* Fill in the blanks (5) */
-{q:"Catalyst increases the ___ of reaction.",o:["Rate"],a:0},
-{q:"Enzyme is a ___ catalyst.",o:["Biological"],a:0},
-{q:"Catalyst provides ___ energy path.",o:["Lower"],a:0},
-{q:"Poison reduces ___ activity.",o:["Catalyst"],a:0},
-{q:"Catalyst remains ___ after reaction.",o:["Unchanged"],a:0},
-],
+  <div class="section-title">True/False</div>
+  <div class="question">1. Electron has negative charge. <div class="answer">True</div></div>
+  <div class="question">2. Proton has negative charge. <div class="answer">False</div></div>
+  <div class="question">3. Pauli’s principle: max 2 electrons per orbital. <div class="answer">True</div></div>
+  <div class="question">4. Ionic bond involves sharing electrons. <div class="answer">False</div></div>
+  <div class="question">5. Metallic bond has delocalized electrons. <div class="answer">True</div></div>
 
-6:[
-/* MCQ */
-{q:"Electrochemistry deals with:",o:["Heat","Electricity","Chemical reactions","Both B & C"],a:3},
-{q:"SI unit of charge:",o:["Volt","Ampere","Coulomb","Ohm"],a:2},
-{q:"Faraday laws are related to:",o:["Corrosion","Electrolysis","Catalysis","Equilibrium"],a:1},
-{q:"Rusting is:",o:["Reduction","Oxidation","Corrosion","Electrolysis"],a:2},
-{q:"Anode undergoes:",o:["Reduction","Oxidation","Neutral","None"],a:1},
-{q:"Cathode undergoes:",o:["Oxidation","Reduction","Neutral","None"],a:1},
-{q:"Electroplating uses:",o:["Corrosion","Electrolysis","Reduction","Oxidation"],a:1},
-{q:"Primary cell is:",o:["Rechargeable","Non-rechargeable","Fuel cell","None"],a:1},
-{q:"Secondary cell is:",o:["Dry cell","Lead-acid","Primary","Fuel"],a:1},
-{q:"Corrosion occurs faster in:",o:["Dry air","Moist air","Vacuum","Oil"],a:1},
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Electron has __________ charge. <div class="answer">Negative</div></div>
+  <div class="question">2. Proton has __________ charge. <div class="answer">Positive</div></div>
+  <div class="question">3. Hund’s rule: fill __________ first. <div class="answer">Singly</div></div>
+  <div class="question">4. Covalent bond involves __________ electrons. <div class="answer">Sharing</div></div>
+  <div class="question">5. Ionic bond involves __________ of electrons. <div class="answer">Transfer</div></div>
+</div>
 
-/* T/F */
-{q:"Corrosion is electrochemical.",o:["True","False"],a:0},
-{q:"Electroplating protects metal.",o:["True","False"],a:0},
-{q:"Cathode undergoes oxidation.",o:["True","False"],a:1},
-{q:"Rusting needs moisture.",o:["True","False"],a:0},
-{q:"Faraday law deals with mass.",o:["True","False"],a:0},
+<!-- Chapter 4 -->
+<div class="chapter">
+  <h2>Chapter 4: Chemical Equilibrium</h2>
 
-/* Fill */
-{q:"SI unit of charge is ___.",o:["Coulomb"],a:0},
-{q:"Rust is hydrated ___ oxide.",o:["Ferric"],a:0},
-{q:"Electrolysis requires ___ current.",o:["Electric"],a:0},
-{q:"Anode undergoes ___.",o:["Oxidation"],a:0},
-{q:"Electroplating prevents ___.",o:["Corrosion"],a:0},
-],
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Chemical equilibrium is: a) State of reactants b) State where forward and backward reactions are equal c) Only reactants exist d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">2. Le-Chatelier’s principle predicts: a) Equilibrium shift b) Reaction rate c) Energy change d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Ionic equilibrium depends on: a) pH b) Mass c) Volume d) Temperature
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">4. Equilibrium constant symbol: a) K b) E c) Q d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">5. Forward reaction = backward reaction at: a) Equilibrium b) Start c) End d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">6. Increasing reactant shifts equilibrium: a) Right b) Left c) No shift d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">7. Decreasing product shifts equilibrium: a) Right b) Left c) No shift d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Catalysts affect: a) Equilibrium position b) Rate of reaction c) Both d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">9. Temperature increase shifts exothermic reaction: a) Right b) Left c) No shift d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">10. Equilibrium constant depends on: a) Concentration b) Temperature c) Pressure d) None
+    <div class="answer">Answer: b</div>
+  </div>
 
-7:[
-/* MCQ */
-{q:"Metallurgy is extraction of:",o:["Non-metals","Metals","Gas","Water"],a:1},
-{q:"Ore is:",o:["Pure metal","Mineral","Metal compound","All"],a:2},
-{q:"Gangue means:",o:["Ore","Impurity","Metal","Flux"],a:1},
-{q:"Blast furnace extracts:",o:["Cu","Zn","Fe","Al"],a:2},
-{q:"Alloy is mixture of:",o:["Metals","Non-metals","Metal & non-metal","Gas"],a:0},
-{q:"Steel is alloy of:",o:["Fe & C","Cu & Zn","Al & Mg","Fe & Cr"],a:0},
-{q:"Polymer is made of:",o:["Atoms","Molecules","Monomers","Ions"],a:2},
-{q:"PVC is:",o:["Thermoset","Thermoplastic","Metal","Ceramic"],a:1},
-{q:"Natural polymer:",o:["Nylon","Rubber","PVC","Teflon"],a:1},
-{q:"Alloys are used to improve:",o:["Weight","Properties","Colour","Cost"],a:1},
+  <div class="section-title">True/False</div>
+  <div class="question">1. Forward and backward reaction rates are equal at equilibrium. <div class="answer">True</div></div>
+  <div class="question">2. Catalyst changes equilibrium position. <div class="answer">False</div></div>
+  <div class="question">3. Le-Chatelier’s principle predicts shifts. <div class="answer">True</div></div>
+  <div class="question">4. Equilibrium is dynamic. <div class="answer">True</div></div>
+  <div class="question">5. Increasing temperature always favors forward reaction. <div class="answer">False</div></div>
 
-/* T/F */
-{q:"Ore contains impurities.",o:["True","False"],a:0},
-{q:"Steel is pure iron.",o:["True","False"],a:1},
-{q:"PVC is thermoplastic.",o:["True","False"],a:0},
-{q:"Gangue is useful.",o:["True","False"],a:1},
-{q:"Polymers have large molecules.",o:["True","False"],a:0},
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Chemical equilibrium occurs when forward and backward reactions are __________. <div class="answer">Equal</div></div>
+  <div class="question">2. Le-Chatelier’s principle predicts __________. <div class="answer">Equilibrium shift</div></div>
+  <div class="question">3. Equilibrium constant symbol is __________. <div class="answer">K</div></div>
+  <div class="question">4. Catalyst affects __________ but not equilibrium position. <div class="answer">Rate</div></div>
+  <div class="question">5. Exothermic reaction shifts __________ with temperature increase. <div class="answer">Left</div></div>
+</div>
+<!-- Chapter 5 -->
+<div class="chapter">
+  <h2>Chapter 5: Catalysis</h2>
 
-/* Fill */
-{q:"Extraction of metals is called ___.",o:["Metallurgy"],a:0},
-{q:"Steel contains ___ and carbon.",o:["Iron"],a:0},
-{q:"PVC full form is ___ chloride.",o:["Polyvinyl"],a:0},
-{q:"Natural polymer example is ___.",o:["Rubber"],a:0},
-{q:"Impurities in ore are called ___.",o:["Gangue"],a:0},
-],
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Catalyst increases reaction rate without being: a) Consumed b) Heated c) Cooled d) Oxidized
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">2. Homogeneous catalysis occurs when: a) Catalyst & reactants in same phase b) Different phases c) Solid only d) Gas only
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Heterogeneous catalysis occurs when: a) Different phases b) Same phase c) No reaction d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">4. Enzyme acts as a: a) Biological catalyst b) Acid c) Base d) Salt
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">5. Catalysts are used in: a) Industry b) Laboratory c) Both a & b d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">6. Catalyst changes: a) Reaction rate b) Equilibrium position c) Both d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">7. Auto-catalysis means: a) Product acts as catalyst b) Reactant acts as catalyst c) No catalyst d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Poisoning of catalyst: a) Decreases activity b) Increases activity c) No effect d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">9. Support in heterogeneous catalysis is: a) Surface b) Solvent c) Reactant d) Product
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">10. Catalysis accelerates: a) Reaction rate b) Heat absorption c) Volume d) Mass
+    <div class="answer">Answer: a</div>
+  </div>
 
-8:[
-/* MCQ */
-{q:"Hardness of water is due to:",o:["Na⁺","K⁺","Ca²⁺ & Mg²⁺","Cl⁻"],a:2},
-{q:"Temporary hardness is caused by:",o:["Chloride","Sulphate","Bicarbonate","Nitrate"],a:2},
-{q:"Permanent hardness is caused by:",o:["Bicarbonate","Sulphate","CO₂","O₂"],a:1},
-{q:"Hardness unit is:",o:["ppm","kg","mol","L"],a:0},
-{q:"Boiling removes:",o:["Permanent","Temporary","Both","None"],a:1},
-{q:"Zeolite process works on:",o:["Precipitation","Ion exchange","Filtration","Oxidation"],a:1},
-{q:"EDTA method is used to:",o:["Remove hardness","Determine hardness","Filter water","Disinfect"],a:1},
-{q:"Soft water forms lather:",o:["Easily","Slowly","Never","None"],a:0},
-{q:"Hard water causes:",o:["Scale","Foam","Rust","Colour"],a:0},
-{q:"Municipal treatment includes:",o:["Filtration","Chlorination","Sedimentation","All"],a:3},
+  <div class="section-title">True/False</div>
+  <div class="question">1. Catalyst is consumed in the reaction. <div class="answer">False</div></div>
+  <div class="question">2. Enzymes are biological catalysts. <div class="answer">True</div></div>
+  <div class="question">3. Homogeneous catalysis occurs in same phase. <div class="answer">True</div></div>
+  <div class="question">4. Heterogeneous catalysis occurs in different phases. <div class="answer">True</div></div>
+  <div class="question">5. Catalysis changes equilibrium position. <div class="answer">False</div></div>
 
-/* T/F */
-{q:"Hard water contains Ca²⁺ ions.",o:["True","False"],a:0},
-{q:"Permanent hardness removed by boiling.",o:["True","False"],a:1},
-{q:"EDTA is titration method.",o:["True","False"],a:0},
-{q:"Soft water wastes soap.",o:["True","False"],a:1},
-{q:"Zeolite exchanges Na⁺ ions.",o:["True","False"],a:0},
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Catalyst increases __________ without being consumed. <div class="answer">Reaction rate</div></div>
+  <div class="question">2. Enzyme is a __________ catalyst. <div class="answer">Biological</div></div>
+  <div class="question">3. Homogeneous catalysis occurs in __________ phase. <div class="answer">Same</div></div>
+  <div class="question">4. Heterogeneous catalysis occurs in __________ phases. <div class="answer">Different</div></div>
+  <div class="question">5. Poisoning of catalyst __________ its activity. <div class="answer">Decreases</div></div>
+</div>
 
-/* Fill */
-{q:"Hardness unit is ___ .",o:["ppm"],a:0},
-{q:"Temporary hardness caused by ___ salts.",o:["Bicarbonate"],a:0},
-{q:"EDTA is used to ___ hardness.",o:["Determine"],a:0},
-{q:"Soft water forms ___ lather.",o:["Easy"],a:0},
-{q:"Ion exchange process removes ___ ions.",o:["Ca²⁺ & Mg²⁺"],a:0},
-]
-};
+<!-- Chapter 6 -->
+<div class="chapter">
+  <h2>Chapter 6: Electrochemistry</h2>
 
-let ch=5,i=0;
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Electrochemistry studies relation between: a) Electricity & chemical reactions b) Heat & work c) Mass & volume d) Pressure & volume
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">2. Oxidation occurs at: a) Anode b) Cathode c) Electrolyte d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Reduction occurs at: a) Anode b) Cathode c) Electrolyte d) None
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">4. Electrolyte conducts in: a) Molten/solution b) Solid c) Metal d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">5. Faraday’s law relates: a) Mass deposited to current & time b) Energy to volume c) Pressure to volume d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">6. Primary cell: a) Non-rechargeable b) Rechargeable c) Both d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">7. Secondary cell: a) Rechargeable b) Non-rechargeable c) Both d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Standard electrode potential symbol: a) E° b) K c) ΔG d) Q
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">9. Galvanic cell produces: a) Electrical energy b) Heat c) Light d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">10. Electrolysis reaction is: a) Non-spontaneous b) Spontaneous c) Both d) None
+    <div class="answer">Answer: a</div>
+  </div>
 
-function loadChapter(){ch=document.getElementById("chapter").value;i=0;loadQ();}
-function loadQ(){
-  const qz=document.getElementById("quiz");qz.innerHTML="";
-  let d=data[ch][i];
-  let q=document.createElement("div");q.className="question";q.innerText=(i+1)+". "+d.q;qz.appendChild(q);
-  d.o.forEach((op,j)=>{
-    let div=document.createElement("div");
-    div.className="option";div.innerText=op;
-    div.onclick=()=>check(div,j);qz.appendChild(div);
-  });
-}
-function check(el,s){
-  document.querySelectorAll(".option").forEach(o=>o.onclick=null);
-  if(s===data[ch][i].a) el.classList.add("correct");
-  else{el.classList.add("wrong");document.querySelectorAll(".option")[data[ch][i].a].classList.add("correct");}
-}
-function nextQ(){
-  i++; if(i<data[ch].length) loadQ();
-  else document.getElementById("quiz").innerHTML="<h3>Chapter Completed ✅</h3>";
-}
-loadQ();
-</script>
+  <div class="section-title">True/False</div>
+  <div class="question">1. Oxidation occurs at anode. <div class="answer">True</div></div>
+  <div class="question">2. Reduction occurs at cathode. <div class="answer">True</div></div>
+  <div class="question">3. Electrolyte conducts in molten or solution state. <div class="answer">True</div></div>
+  <div class="question">4. Galvanic cell requires external power source. <div class="answer">False</div></div>
+  <div class="question">5. Standard electrode potential symbol is E°. <div class="answer">True</div></div>
 
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Oxidation occurs at __________. <div class="answer">Anode</div></div>
+  <div class="question">2. Reduction occurs at __________. <div class="answer">Cathode</div></div>
+  <div class="question">3. Electrolyte conducts in __________ state. <div class="answer">Molten/solution</div></div>
+  <div class="question">4. Galvanic cell generates __________ energy. <div class="answer">Electrical</div></div>
+  <div class="question">5. Standard electrode potential symbol is __________. <div class="answer">E°</div></div>
+</div>
+<!-- Chapter 7 -->
+<div class="chapter">
+  <h2>Chapter 7: Engineering Materials</h2>
+
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Engineering materials include: a) Metals b) Polymers c) Ceramics d) All of the above
+    <div class="answer">Answer: d</div>
+  </div>
+  <div class="question">2. Ferrous alloys mainly contain: a) Iron b) Copper c) Aluminium d) Zinc
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Non-ferrous alloys include: a) Copper b) Aluminium c) Both a & b d) Iron
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">4. Portland cement is used for: a) Construction b) Cooking c) Painting d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">5. Glass is mainly composed of: a) Silica b) Alumina c) Iron d) Calcium
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">6. Polymers are made of: a) Monomers b) Metals c) Ceramics d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">7. Nano materials have: a) High surface area b) Low surface area c) No surface area d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">8. Alloys are prepared to: a) Improve properties b) Reduce cost c) Both a & b d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">9. Bauxite is ore of: a) Aluminium b) Iron c) Copper d) Zinc
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">10. Ferrous alloys contain: a) Iron b) Copper c) Aluminium d) Zinc
+    <div class="answer">Answer: a</div>
+  </div>
+
+  <div class="section-title">True/False</div>
+  <div class="question">1. Polymers are made of monomers. <div class="answer">True</div></div>
+  <div class="question">2. Ferrous alloys do not contain iron. <div class="answer">False</div></div>
+  <div class="question">3. Portland cement is used in construction. <div class="answer">True</div></div>
+  <div class="question">4. Glass is made of silica. <div class="answer">True</div></div>
+  <div class="question">5. Nano materials have low surface area. <div class="answer">False</div></div>
+
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Ferrous alloys mainly contain __________. <div class="answer">Iron</div></div>
+  <div class="question">2. Polymers are made of __________. <div class="answer">Monomers</div></div>
+  <div class="question">3. Portland cement is used for __________. <div class="answer">Construction</div></div>
+  <div class="question">4. Glass is composed mainly of __________. <div class="answer">Silica</div></div>
+  <div class="question">5. Bauxite is ore of __________. <div class="answer">Aluminium</div></div>
+</div>
+
+<!-- Chapter 8 -->
+<div class="chapter">
+  <h2>Chapter 8: Water</h2>
+
+  <div class="section-title">MCQs</div>
+  <div class="question">1. Hardness of water is caused by: a) Ca²⁺ & Mg²⁺ b) Na⁺ & K⁺ c) Cl⁻ & SO₄²⁻ d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">2. Temporary hardness is due to: a) Carbonates b) Chlorides c) Sulphates d) Nitrates
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">3. Permanent hardness is due to: a) CaCl₂ b) CaSO₄ c) Na₂CO₃ d) KCl
+    <div class="answer">Answer: b</div>
+  </div>
+  <div class="question">4. Water softening can be done using: a) Soda lime b) Boiling c) Both a & b d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">5. Zeolite process is used for: a) Softening water b) Heating water c) Freezing water d) None
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">6. Municipal water treatment includes: a) Sedimentation b) Filtration c) Sterilization d) All of these
+    <div class="answer">Answer: d</div>
+  </div>
+  <div class="question">7. Hard water affects: a) Boilers b) Soap c) Both a & b d) None
+    <div class="answer">Answer: c</div>
+  </div>
+  <div class="question">8. ETDA method is used for: a) Measuring hardness b) Filtration c) Sterilization d) Boiling
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">9. Hard water contains: a) Ca²⁺ & Mg²⁺ b) Na⁺ & K⁺ c) None d) All
+    <div class="answer">Answer: a</div>
+  </div>
+  <div class="question">10. Hard water forms: a) Scales b) Foam c) Gas d) None
+    <div class="answer">Answer: a</div>
+  </div>
+
+  <div class="section-title">True/False</div>
+  <div class="question">1. Hard water contains calcium and magnesium ions. <div class="answer">True</div></div>
+  <div class="question">2. Temporary hardness can be removed by boiling. <div class="answer">True</div></div>
+  <div class="question">3. Permanent hardness can be removed by zeolite process. <div class="answer">True</div></div>
+  <div class="question">4. Hard water does not affect soap usage. <div class="answer">False</div></div>
+  <div class="question">5. ETDA method measures water hardness. <div class="answer">True</div></div>
+
+  <div class="section-title">Fill in the Blanks</div>
+  <div class="question">1. Hardness of water is caused by __________ ions. <div class="answer">Ca²⁺ and Mg²⁺</div></div>
+  <div class="question">2. Temporary hardness is due to __________. <div class="answer">Carbonates</div></div>
+  <div class="question">3. Permanent hardness is due to __________. <div class="answer">Chlorides and Sulphates</div></div>
+  <div class="question">4. Municipal water treatment includes __________. <div class="answer">Sedimentation, Filtration, Sterilization</div></div>
+  <div class="question">5. Hardness of water can be measured by __________. <div class="answer">ETDA method</div></div>
+</div>
 </body>
 </html>
