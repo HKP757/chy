@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Engineering Chemistry Quiz (Ch 1–4)</title>
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f6f8;
+  padding:20px;
+}
+.quiz-box{
+  max-width:900px;
+  margin:auto;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+select{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+}
+.question{
+  font-size:18px;
+  margin:15px 0;
+}
+.option{
+  background:#eef1f5;
+  padding:10px;
+  margin:6px 0;
+  border-radius:6px;
+  cursor:pointer;
+}
+.option:hover{ background:#dbeafe; }
+.correct{ background:#c8f7c5 !important; }
+.wrong{ background:#f7c5c5 !important; }
+.next-btn{
+  margin-top:15px;
+  padding:10px 20px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-box">
+<h2>Engineering Chemistry (Chapter 1–4)</h2>
+
+<select id="chapter" onchange="loadChapter()">
+  <option value="1">Chapter 1: Chemical Equation</option>
+  <option value="2">Chapter 2: Solution & Titration</option>
+  <option value="3">Chapter 3: Atomic Structure</option>
+  <option value="4">Chapter 4: Chemical Equilibrium</option>
+</select>
+
+<div id="quiz"></div>
+<button class="next-btn" onclick="nextQ()">Next</button>
+</div>
+
+<script>
+const data = {
+1:[
+/* ===== MCQ (10) ===== */
+{q:"One mole contains:",o:["6.022×10²²","6.022×10²³","3.011×10²³","1.66×10⁻²⁴"],a:1},
+{q:"Oxidation means:",o:["Gain of e⁻","Loss of e⁻","Gain proton","Loss neutron"],a:1},
+{q:"Reduction is:",o:["Loss of e⁻","Gain of e⁻","Loss proton","Gain neutron"],a:1},
+{q:"Redox reaction involves:",o:["Oxidation only","Reduction only","Both","None"],a:2},
+{q:"Molar mass of CO₂ is:",o:["28","32","40","44"],a:3},
+{q:"Avogadro number is:",o:["6.022×10²³","9.8","3×10⁸","1.6×10⁻¹⁹"],a:0},
+{q:"Stoichiometry deals with:",o:["Colour","Mass relation","Bonding","Structure"],a:1},
+{q:"Oxidizing agent undergoes:",o:["Oxidation","Reduction","Neutralization","None"],a:1},
+{q:"Law of conservation of mass states mass is:",o:["Created","Destroyed","Constant","Variable"],a:2},
+{q:"Chemical equation represents:",o:["Reaction","Speed","Colour","Smell"],a:0},
+
+/* ===== TRUE / FALSE (5) ===== */
+{q:"Oxidation and reduction occur together.",o:["True","False"],a:0},
+{q:"One mole has fixed number of particles.",o:["True","False"],a:0},
+{q:"Avogadro number depends on substance.",o:["True","False"],a:1},
+{q:"Redox reactions involve electrons.",o:["True","False"],a:0},
+{q:"Mole depends on temperature.",o:["True","False"],a:1},
+
+/* ===== FILL IN THE BLANKS (5) ===== */
+{q:"One mole contains ___ particles.",o:["6.022×10²³"],a:0},
+{q:"Loss of electrons is called ___ .",o:["Oxidation"],a:0},
+{q:"Gain of electrons is called ___ .",o:["Reduction"],a:0},
+{q:"CO₂ molar mass is ___ g/mol.",o:["44"],a:0},
+{q:"Redox reaction means oxidation and ___ .",o:["Reduction"],a:0},
+],
+
+2:[
+/* MCQ */
+{q:"Unit of molarity is:",o:["g/L","mol/L","eq/L","g/mol"],a:1},
+{q:"Normality depends on:",o:["Molar mass","Equivalent weight","Volume","Density"],a:1},
+{q:"Titration is used to find:",o:["Temperature","Unknown concentration","Mass","Colour"],a:1},
+{q:"Phenolphthalein is a:",o:["Acid","Base","Indicator","Salt"],a:2},
+{q:"Acidimetry deals with:",o:["Acids","Bases","Salts","Water"],a:0},
+{q:"Alkalimetry deals with:",o:["Bases","Acids","Salts","Gases"],a:0},
+{q:"Molarity depends on:",o:["Temperature","Pressure","Volume","All"],a:3},
+{q:"End point is shown by:",o:["Indicator","Catalyst","Solvent","Salt"],a:0},
+{q:"Normality unit is:",o:["mol/L","eq/L","g/L","g/mol"],a:1},
+{q:"Strength of solution means:",o:["Colour","Concentration","Density","Mass"],a:1},
+
+/* T/F */
+{q:"Molarity depends on temperature.",o:["True","False"],a:0},
+{q:"Indicator shows end point.",o:["True","False"],a:0},
+{q:"Normality is always equal to molarity.",o:["True","False"],a:1},
+{q:"Acidimetry uses bases.",o:["True","False"],a:1},
+{q:"Titration is volumetric analysis.",o:["True","False"],a:0},
+
+/* Fill */
+{q:"Molarity = ___ of solute / litre.",o:["Moles"],a:0},
+{q:"Normality unit is ___ .",o:["eq/L"],a:0},
+{q:"Indicator changes ___ at end point.",o:["Colour"],a:0},
+{q:"Alkalimetry deals with ___ .",o:["Bases"],a:0},
+{q:"Titration finds ___ concentration.",o:["Unknown"],a:0},
+],
+
+3:[
+/* MCQ */
+{q:"Number of quantum numbers is:",o:["2","3","4","5"],a:2},
+{q:"Pauli principle applies to:",o:["Protons","Neutrons","Electrons","Nucleus"],a:2},
+{q:"De-Broglie hypothesis explains:",o:["Wave nature","Particle nature","Dual nature","Bonding"],a:2},
+{q:"Aufbau principle is related to:",o:["Bonding","Orbital filling","Valency","Ionization"],a:1},
+{q:"Covalent bond involves:",o:["Transfer","Sharing","Loss","Gain"],a:1},
+{q:"Ionic bond involves:",o:["Sharing","Transfer","Overlap","Hybridization"],a:1},
+{q:"Hydrogen bond is:",o:["Primary","Secondary","Metallic","Ionic"],a:1},
+{q:"Valence electrons decide:",o:["Mass","Bonding","Colour","Density"],a:1},
+{q:"s-orbital shape is:",o:["Dumbbell","Spherical","Double dumbbell","Complex"],a:1},
+{q:"Hund’s rule is about:",o:["Pairing","Energy","Spin","Mass"],a:2},
+
+/* T/F */
+{q:"Quantum numbers describe electrons.",o:["True","False"],a:0},
+{q:"Covalent bond involves transfer.",o:["True","False"],a:1},
+{q:"Hydrogen bond is weaker than covalent.",o:["True","False"],a:0},
+{q:"Aufbau principle fills lower energy first.",o:["True","False"],a:0},
+{q:"Pauli principle allows same spin.",o:["True","False"],a:1},
+
+/* Fill */
+{q:"Total quantum numbers are ___ .",o:["Four"],a:0},
+{q:"Covalent bond involves ___ of electrons.",o:["Sharing"],a:0},
+{q:"Hydrogen bonding occurs with ___ atoms.",o:["Electronegative"],a:0},
+{q:"s-orbital shape is ___ .",o:["Spherical"],a:0},
+{q:"Hund’s rule is about ___ .",o:["Spin"],a:0},
+],
+
+4:[
+/* MCQ */
+{q:"Chemical equilibrium occurs in:",o:["Open system","Closed system","Isolated","None"],a:1},
+{q:"Law of mass action relates to:",o:["Rate","Equilibrium","Bonding","Catalyst"],a:1},
+{q:"pH of neutral solution is:",o:["0","7","14","1"],a:1},
+{q:"pH is measure of:",o:["Acidity","Basicity","Both","None"],a:2},
+{q:"Le-Chatelier principle deals with:",o:["Pressure","Change","Equilibrium","All"],a:3},
+{q:"Increase in pressure favours:",o:["More moles","Less moles","No effect","Solid"],a:1},
+{q:"Equilibrium constant is:",o:["Variable","Constant","Zero","Infinite"],a:1},
+{q:"Acidic solution has pH:",o:["<7",">7","=7","0"],a:0},
+{q:"Basic solution has pH:",o:["<7",">7","=7","None"],a:1},
+{q:"pH formula is:",o:["-log[H+]","log[H+]","1/[H+]","None"],a:0},
+
+/* T/F */
+{q:"Equilibrium constant changes with catalyst.",o:["True","False"],a:1},
+{q:"pH scale ranges 0–14.",o:["True","False"],a:0},
+{q:"Neutral solution has pH 7.",o:["True","False"],a:0},
+{q:"Le-Chatelier deals with stress.",o:["True","False"],a:0},
+{q:"Equilibrium occurs instantly.",o:["True","False"],a:1},
+
+/* Fill */
+{q:"pH = ___ of hydrogen ion concentration.",o:["Negative logarithm"],a:0},
+{q:"Neutral solution pH is ___ .",o:["7"],a:0},
+{q:"Equilibrium constant is ___ at given temp.",o:["Constant"],a:0},
+{q:"Increase pressure favours ___ moles.",o:["Less"],a:0},
+{q:"Chemical equilibrium occurs in ___ system.",o:["Closed"],a:0},
+]
+};
+
+let ch=1,i=0;
+
+function loadChapter(){
+  ch=document.getElementById("chapter").value;
+  i=0;
+  loadQ();
+}
+
+function loadQ(){
+  const qz=document.getElementById("quiz");
+  qz.innerHTML="";
+  let d=data[ch][i];
+  let q=document.createElement("div");
+  q.className="question";
+  q.innerText=(i+1)+". "+d.q;
+  qz.appendChild(q);
+
+  d.o.forEach((op,j)=>{
+    let div=document.createElement("div");
+    div.className="option";
+    div.innerText=op;
+    div.onclick=()=>check(div,j);
+    qz.appendChild(div);
+  });
+}
+
+function check(el,s){
+  document.querySelectorAll(".option").forEach(o=>o.onclick=null);
+  if(s===data[ch][i].a){
+    el.classList.add("correct");
+  }else{
+    el.classList.add("wrong");
+    document.querySelectorAll(".option")[data[ch][i].a].classList.add("correct");
+  }
+}
+
+function nextQ(){
+  i++;
+  if(i<data[ch].length) loadQ();
+  else document.getElementById("quiz").innerHTML="<h3>Chapter Completed ✅</h3>";
+}
+
+loadQ();
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Engineering Chemistry Quiz (Ch 5–8)</title>
+<style>
+body{font-family:Arial;background:#f4f6f8;padding:20px;}
+.quiz-box{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+select{width:100%;padding:10px;margin-bottom:15px;}
+.question{font-size:18px;margin:15px 0;}
+.option{background:#eef1f5;padding:10px;margin:6px 0;border-radius:6px;cursor:pointer;}
+.option:hover{background:#dbeafe;}
+.correct{background:#c8f7c5!important;}
+.wrong{background:#f7c5c5!important;}
+.next-btn{margin-top:15px;padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<div class="quiz-box">
+<h2>Engineering Chemistry (Chapter 5–8)</h2>
+
+<select id="chapter" onchange="loadChapter()">
+  <option value="5">Chapter 5: Catalysis</option>
+  <option value="6">Chapter 6: Electrochemistry</option>
+  <option value="7">Chapter 7: Engineering Materials</option>
+  <option value="8">Chapter 8: Water</option>
+</select>
+
+<div id="quiz"></div>
+<button class="next-btn" onclick="nextQ()">Next</button>
+</div>
+
+<script>
+const data={
+5:[
+/* MCQ (10) */
+{q:"Catalyst is a substance which:",o:["Slows reaction","Stops reaction","Increases rate","Changes equilibrium"],a:2},
+{q:"Catalyst remains:",o:["Consumed","Destroyed","Unchanged","Converted"],a:2},
+{q:"Homogeneous catalysis means:",o:["Same phase","Different phase","Solid only","Liquid only"],a:0},
+{q:"Heterogeneous catalysis involves:",o:["Same phase","Different phase","Gas only","Liquid only"],a:1},
+{q:"Enzyme is a:",o:["Metal","Acid","Biological catalyst","Salt"],a:2},
+{q:"Catalyst does not affect:",o:["Rate","Activation energy","Equilibrium","Path"],a:2},
+{q:"Example of enzyme:",o:["Pepsin","Iron","Copper","NaCl"],a:0},
+{q:"Catalyst lowers:",o:["Temperature","Activation energy","Pressure","Volume"],a:1},
+{q:"Poison reduces activity of:",o:["Reactant","Product","Catalyst","Solvent"],a:2},
+{q:"Catalysis occurs due to:",o:["Higher temp","Lower energy path","Pressure","Volume"],a:1},
+
+/* True/False (5) */
+{q:"Catalyst changes equilibrium position.",o:["True","False"],a:1},
+{q:"Enzymes are biological catalysts.",o:["True","False"],a:0},
+{q:"Catalyst is consumed.",o:["True","False"],a:1},
+{q:"Heterogeneous catalyst is in same phase.",o:["True","False"],a:1},
+{q:"Catalyst lowers activation energy.",o:["True","False"],a:0},
+
+/* Fill in the blanks (5) */
+{q:"Catalyst increases the ___ of reaction.",o:["Rate"],a:0},
+{q:"Enzyme is a ___ catalyst.",o:["Biological"],a:0},
+{q:"Catalyst provides ___ energy path.",o:["Lower"],a:0},
+{q:"Poison reduces ___ activity.",o:["Catalyst"],a:0},
+{q:"Catalyst remains ___ after reaction.",o:["Unchanged"],a:0},
+],
+
+6:[
+/* MCQ */
+{q:"Electrochemistry deals with:",o:["Heat","Electricity","Chemical reactions","Both B & C"],a:3},
+{q:"SI unit of charge:",o:["Volt","Ampere","Coulomb","Ohm"],a:2},
+{q:"Faraday laws are related to:",o:["Corrosion","Electrolysis","Catalysis","Equilibrium"],a:1},
+{q:"Rusting is:",o:["Reduction","Oxidation","Corrosion","Electrolysis"],a:2},
+{q:"Anode undergoes:",o:["Reduction","Oxidation","Neutral","None"],a:1},
+{q:"Cathode undergoes:",o:["Oxidation","Reduction","Neutral","None"],a:1},
+{q:"Electroplating uses:",o:["Corrosion","Electrolysis","Reduction","Oxidation"],a:1},
+{q:"Primary cell is:",o:["Rechargeable","Non-rechargeable","Fuel cell","None"],a:1},
+{q:"Secondary cell is:",o:["Dry cell","Lead-acid","Primary","Fuel"],a:1},
+{q:"Corrosion occurs faster in:",o:["Dry air","Moist air","Vacuum","Oil"],a:1},
+
+/* T/F */
+{q:"Corrosion is electrochemical.",o:["True","False"],a:0},
+{q:"Electroplating protects metal.",o:["True","False"],a:0},
+{q:"Cathode undergoes oxidation.",o:["True","False"],a:1},
+{q:"Rusting needs moisture.",o:["True","False"],a:0},
+{q:"Faraday law deals with mass.",o:["True","False"],a:0},
+
+/* Fill */
+{q:"SI unit of charge is ___.",o:["Coulomb"],a:0},
+{q:"Rust is hydrated ___ oxide.",o:["Ferric"],a:0},
+{q:"Electrolysis requires ___ current.",o:["Electric"],a:0},
+{q:"Anode undergoes ___.",o:["Oxidation"],a:0},
+{q:"Electroplating prevents ___.",o:["Corrosion"],a:0},
+],
+
+7:[
+/* MCQ */
+{q:"Metallurgy is extraction of:",o:["Non-metals","Metals","Gas","Water"],a:1},
+{q:"Ore is:",o:["Pure metal","Mineral","Metal compound","All"],a:2},
+{q:"Gangue means:",o:["Ore","Impurity","Metal","Flux"],a:1},
+{q:"Blast furnace extracts:",o:["Cu","Zn","Fe","Al"],a:2},
+{q:"Alloy is mixture of:",o:["Metals","Non-metals","Metal & non-metal","Gas"],a:0},
+{q:"Steel is alloy of:",o:["Fe & C","Cu & Zn","Al & Mg","Fe & Cr"],a:0},
+{q:"Polymer is made of:",o:["Atoms","Molecules","Monomers","Ions"],a:2},
+{q:"PVC is:",o:["Thermoset","Thermoplastic","Metal","Ceramic"],a:1},
+{q:"Natural polymer:",o:["Nylon","Rubber","PVC","Teflon"],a:1},
+{q:"Alloys are used to improve:",o:["Weight","Properties","Colour","Cost"],a:1},
+
+/* T/F */
+{q:"Ore contains impurities.",o:["True","False"],a:0},
+{q:"Steel is pure iron.",o:["True","False"],a:1},
+{q:"PVC is thermoplastic.",o:["True","False"],a:0},
+{q:"Gangue is useful.",o:["True","False"],a:1},
+{q:"Polymers have large molecules.",o:["True","False"],a:0},
+
+/* Fill */
+{q:"Extraction of metals is called ___.",o:["Metallurgy"],a:0},
+{q:"Steel contains ___ and carbon.",o:["Iron"],a:0},
+{q:"PVC full form is ___ chloride.",o:["Polyvinyl"],a:0},
+{q:"Natural polymer example is ___.",o:["Rubber"],a:0},
+{q:"Impurities in ore are called ___.",o:["Gangue"],a:0},
+],
+
+8:[
+/* MCQ */
+{q:"Hardness of water is due to:",o:["Na⁺","K⁺","Ca²⁺ & Mg²⁺","Cl⁻"],a:2},
+{q:"Temporary hardness is caused by:",o:["Chloride","Sulphate","Bicarbonate","Nitrate"],a:2},
+{q:"Permanent hardness is caused by:",o:["Bicarbonate","Sulphate","CO₂","O₂"],a:1},
+{q:"Hardness unit is:",o:["ppm","kg","mol","L"],a:0},
+{q:"Boiling removes:",o:["Permanent","Temporary","Both","None"],a:1},
+{q:"Zeolite process works on:",o:["Precipitation","Ion exchange","Filtration","Oxidation"],a:1},
+{q:"EDTA method is used to:",o:["Remove hardness","Determine hardness","Filter water","Disinfect"],a:1},
+{q:"Soft water forms lather:",o:["Easily","Slowly","Never","None"],a:0},
+{q:"Hard water causes:",o:["Scale","Foam","Rust","Colour"],a:0},
+{q:"Municipal treatment includes:",o:["Filtration","Chlorination","Sedimentation","All"],a:3},
+
+/* T/F */
+{q:"Hard water contains Ca²⁺ ions.",o:["True","False"],a:0},
+{q:"Permanent hardness removed by boiling.",o:["True","False"],a:1},
+{q:"EDTA is titration method.",o:["True","False"],a:0},
+{q:"Soft water wastes soap.",o:["True","False"],a:1},
+{q:"Zeolite exchanges Na⁺ ions.",o:["True","False"],a:0},
+
+/* Fill */
+{q:"Hardness unit is ___ .",o:["ppm"],a:0},
+{q:"Temporary hardness caused by ___ salts.",o:["Bicarbonate"],a:0},
+{q:"EDTA is used to ___ hardness.",o:["Determine"],a:0},
+{q:"Soft water forms ___ lather.",o:["Easy"],a:0},
+{q:"Ion exchange process removes ___ ions.",o:["Ca²⁺ & Mg²⁺"],a:0},
+]
+};
+
+let ch=5,i=0;
+
+function loadChapter(){ch=document.getElementById("chapter").value;i=0;loadQ();}
+function loadQ(){
+  const qz=document.getElementById("quiz");qz.innerHTML="";
+  let d=data[ch][i];
+  let q=document.createElement("div");q.className="question";q.innerText=(i+1)+". "+d.q;qz.appendChild(q);
+  d.o.forEach((op,j)=>{
+    let div=document.createElement("div");
+    div.className="option";div.innerText=op;
+    div.onclick=()=>check(div,j);qz.appendChild(div);
+  });
+}
+function check(el,s){
+  document.querySelectorAll(".option").forEach(o=>o.onclick=null);
+  if(s===data[ch][i].a) el.classList.add("correct");
+  else{el.classList.add("wrong");document.querySelectorAll(".option")[data[ch][i].a].classList.add("correct");}
+}
+function nextQ(){
+  i++; if(i<data[ch].length) loadQ();
+  else document.getElementById("quiz").innerHTML="<h3>Chapter Completed ✅</h3>";
+}
+loadQ();
+</script>
+
+</body>
+</html>
